@@ -37,3 +37,33 @@ Your app is ready to be deployed.
 ## User Guide
 
 You can find detailed instructions on using Create React App and many tips in [its documentation](https://facebook.github.io/create-react-app/).
+
+
+## Deployment on Heroku
+
+### Configuration
+
+*Step 1*
+
+Go to `Settings -> Config Vars` and set the env. variables:
+
+```
+REACT_APP_FIREBASE_API_KEY
+REACT_APP_FIREBASE_APPID
+REACT_APP_FIREBASE_AUTH_DOMAIN
+REACT_APP_FIREBASE_MEASUREMENT_ID
+REACT_APP_FIREBASE_MESSAGING_SENDER_ID
+REACT_APP_FIREBASE_PROJECT_ID
+REACT_APP_FIREBASE_STORAGE_BUCKET
+```
+*Step 2*
+
+Go to `Settings -> Buildpacks -> Add buildpack` and add `https://github.com/mars/create-react-app-buildpack.git`
+
+### Trigger deployment
+
+`git push heroku master`
+
+### Open the deployed app
+
+`heroku open`
