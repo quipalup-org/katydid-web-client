@@ -62,7 +62,7 @@ Go to `Settings -> Buildpacks -> Add buildpack` and add `https://github.com/mars
 
 ### Trigger deployment
 
-`git push heroku master`
+`git push heroku main`
 
 ### Open the deployed app
 
