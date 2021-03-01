@@ -88,9 +88,9 @@ UserItem.propTypes = {
   className: PropTypes.string
 };
 
-function UserItem({ child, className }) {
+function UserItem({ user, className }) {
   const classes = useStyles();
-  const { name, portraitURL } = child;
+  const { name, portraitURL } = user;
 
   return (
     <Card className={clsx(classes.root, className)}>

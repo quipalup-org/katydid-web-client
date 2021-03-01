@@ -125,7 +125,7 @@ mock.onGet('/young-humans').reply(() => {
     }
   };
 
-  return [200, { users: children }];
+  return [200, { children }];
 });
 
 // ----------------------------------------------------------------------
