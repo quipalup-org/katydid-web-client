@@ -90,10 +90,7 @@ UserItem.propTypes = {
 
 function UserItem({ child, className }) {
   const classes = useStyles();
-  const {
-    name,
-    portraitURL
-  } = child;
+  const { name, portraitURL } = child;
 
   return (
     <Card className={clsx(classes.root, className)}>
