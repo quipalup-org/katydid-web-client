@@ -32,18 +32,18 @@ UserList.propTypes = {
   className: PropTypes.string
 };
 
-function UserList({ users, className }) {
+function UserList({ children, className }) {
   const classes = useStyles();
 
   return (
     <Grid container spacing={3} className={clsx(classes.root, className)}>
-      {users.map(user => (
-        <Grid key={user.id} item xs={12} sm={6} md={4}>
-          <UserItem user={user} />
+      {children.map(child => (
+        <Grid key={child.id} item xs={12} sm={6} md={4}>
+          <UserItem user={child.attributes} />
         </Grid>
       ))}
 
-      {!users.length && SkeletonLoad}
+      {!children.length && SkeletonLoad}
     </Grid>
   );
 }

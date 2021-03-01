@@ -83,98 +83,25 @@ const useStyles = makeStyles(theme => ({
 
 // ----------------------------------------------------------------------
 
-const InfoItem = number => (
-  <Grid item xs={4}>
-    <Box
-      sx={{
-        mb: 0.5,
-        textAlign: 'center',
-        typography: 'caption',
-        color: 'text.secondary'
-      }}
-    >
-      Follower
-    </Box>
-    <Typography align="center" variant="subtitle1">
-      {fShortenNumber(number)}
-    </Typography>
-  </Grid>
-);
-
 UserItem.propTypes = {
   user: PropTypes.object.isRequired,
   className: PropTypes.string
 };
 
-function UserItem({ user, className }) {
+function UserItem({ child, className }) {
   const classes = useStyles();
   const {
     name,
-    cover,
-    position,
-    follower,
-    totalPost,
-    avatarUrl,
-    following
-  } = user;
+    portraitURL
+  } = child;
 
   return (
     <Card className={clsx(classes.root, className)}>
-      <div className={classes.cardMediaWrap}>
-        <MIcon
-          size={144}
-          color="paper"
-          src="/static/icons/shape-avatar.svg"
-          className={classes.avatarShape}
-        />
-        <Avatar
-          alt={name}
-          src={avatarUrl}
-          sx={{
-            width: 64,
-            height: 64,
-            zIndex: 11,
-            position: 'absolute',
-            transform: 'translateY(-50%)'
-          }}
-        />
-        <CardMedia
-          component="img"
-          title="cover"
-          data-sizes="auto"
-          src="/static/images/placeholder.svg"
-          data-src={cover.small}
-          data-srcset={`${cover.small} 600w, ${cover.medium} 960w`}
-          className={clsx(classes.cardMedia, 'lazyload blur-up')}
-        />
-      </div>
-
       <CardContent className={classes.cardContent}>
         <Typography variant="subtitle1" align="center">
           {name}
         </Typography>
-        <Typography variant="body2" color="textSecondary" align="center">
-          {position}
-        </Typography>
       </CardContent>
-
-      <Box sx={{ textAlign: 'center', mt: 2, mb: 2.5 }}>
-        {SOCIALS.map(social => (
-          <Tooltip key={social.name} title={social.name}>
-            <IconButton>{social.icon}</IconButton>
-          </Tooltip>
-        ))}
-      </Box>
-
-      <Divider />
-
-      <Box sx={{ py: 3 }}>
-        <Grid container className={classes.footer}>
-          {InfoItem(follower)}
-          {InfoItem(following)}
-          {InfoItem(totalPost)}
-        </Grid>
-      </Box>
     </Card>
   );
 }
