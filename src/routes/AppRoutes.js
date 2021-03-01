@@ -94,6 +94,11 @@ const AppRoutes = {
     },
     {
       exact: true,
+      path: PATH_APP.management.user.children,
+      component: lazy(() => import('~/views/user/ChildrenCardsView'))
+    },
+    {
+      exact: true,
       path: PATH_APP.management.user.cards,
       component: lazy(() => import('~/views/user/UserCardsView'))
     },
