@@ -37,7 +37,7 @@ function ChildrenCardsView() {
             { name: 'Cards' }
           ]}
         />
-        <UserList users={children.data} />
+        <UserList users={children !== null ? children.data : []} />
       </Container>
     </Page>
   );
