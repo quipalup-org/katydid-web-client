@@ -10,7 +10,7 @@ const initialState = {
   myProfile: null,
   posts: [],
   users: [],
-  children: [],
+  children: null,
   userList: [],
   followers: [],
   friends: [],
