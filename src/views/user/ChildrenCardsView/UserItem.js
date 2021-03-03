@@ -7,6 +7,7 @@ import twitterFill from '@iconify-icons/eva/twitter-fill';
 import linkedinFill from '@iconify-icons/eva/linkedin-fill';
 import facebookFill from '@iconify-icons/eva/facebook-fill';
 import instagramFilled from '@iconify-icons/ant-design/instagram-filled';
+import { getImgCover, getImgFeed, getImgAvatar } from '~/utils/getImages';
 import { alpha, makeStyles } from '@material-ui/core/styles';
 import {
   Box,
@@ -88,12 +89,52 @@ UserItem.propTypes = {
   className: PropTypes.string
 };
 
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 function UserItem({ user, className }) {
   const classes = useStyles();
   const { name, portraitURL } = user;
 
+  let index = getRandomInt(1, 24);
+
   return (
     <Card className={clsx(classes.root, className)}>
+      <div className={classes.cardMediaWrap}>
+        <MIcon
+          size={144}
+          color="paper"
+          src="/static/icons/shape-avatar.svg"
+          className={classes.avatarShape}
+        />
+        <Avatar
+          alt={name}
+          src={getImgAvatar(index)}
+          sx={{
+            width: 64,
+            height: 64,
+            zIndex: 11,
+            position: 'absolute',
+            transform: 'translateY(-50%)'
+          }}
+        />
+        <CardMedia
+          component="img"
+          title="cover"
+          data-sizes="auto"
+          src="/static/images/placeholder.svg"
+          data-src={getImgCover(600, index)}
+          data-srcset={`${getImgCover(600, index)} 600w, ${getImgCover(
+            960,
+            index
+          )} 960w`}
+          className={clsx(classes.cardMedia, 'lazyload blur-up')}
+        />
+      </div>
+
       <CardContent className={classes.cardContent}>
         <Typography variant="subtitle1" align="center">
           {name}
