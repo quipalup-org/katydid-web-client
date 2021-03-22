@@ -68,6 +68,66 @@ mock.onGet('/api/user/all').reply(() => {
   return [200, { users }];
 });
 
+mock.onGet('/young-humans').reply(() => {
+  const children = {
+    data: [
+      {
+        id: '5ee62461-adb8-4618-a110-06290a787223',
+        type: 'young-human',
+        attributes: {
+          name: 'Blanca',
+          portraitURL: 'https://host:1234/blanca',
+          isPresent: true
+        }
+      },
+      {
+        id: '86a93463-e7e1-4fc0-b12c-981f1eea16e8',
+        type: 'young-human',
+        attributes: {
+          name: 'Cristina',
+          portraitURL: 'https://host:1234/cristina',
+          isPresent: true
+        }
+      },
+      {
+        id: 'b9c2380f-0b4c-4871-aefc-a6ed2c3a2408',
+        type: 'young-human',
+        attributes: {
+          name: 'Victor',
+          portraitURL: 'https://host:1234/victor',
+          isPresent: true
+        }
+      },
+      {
+        id: 'a5edf2fa-30b1-45e4-a39b-96243fa60caa',
+        type: 'young-human',
+        attributes: {
+          name: 'Monica',
+          portraitURL: 'https://host:1234/monica',
+          isPresent: true
+        }
+      },
+      {
+        id: '666cf327-09da-46ad-a01c-d3ae6e8ebc9d',
+        type: 'young-human',
+        attributes: {
+          name: 'David',
+          portraitURL: 'https://host:1234/david',
+          isPresent: true
+        }
+      }
+    ],
+    links: {
+      first: '',
+      last: '',
+      prev: '',
+      next: ''
+    }
+  };
+
+  return [200, { children }];
+});
+
 // ----------------------------------------------------------------------
 
 mock.onGet('/api/user/manage-users').reply(() => {

@@ -10,6 +10,7 @@ const initialState = {
   myProfile: null,
   posts: [],
   users: [],
+  children: null,
   userList: [],
   followers: [],
   friends: [],
@@ -51,6 +52,12 @@ const slice = createSlice({
     getUsersSuccess(state, action) {
       state.isLoading = false;
       state.users = action.payload;
+    },
+
+    // GET CHILDREN
+    getChildrenSuccess(state, action) {
+      state.isLoading = false;
+      state.children = action.payload;
     },
 
     // GET FOLLOWERS
@@ -278,6 +285,20 @@ export function getUsers() {
     try {
       const response = await axios.get('/api/user/all');
       dispatch(slice.actions.getUsersSuccess(response.data.users));
+    } catch (error) {
+      dispatch(slice.actions.hasError(error));
+    }
+  };
+}
+
+// ----------------------------------------------------------------------
+
+export function getChildren() {
+  return async dispatch => {
+    dispatch(slice.actions.startLoading());
+    try {
+      const response = await axios.get('/young-humans');
+      dispatch(slice.actions.getChildrenSuccess(response.data.children));
     } catch (error) {
       dispatch(slice.actions.hasError(error));
     }

@@ -71,6 +71,10 @@ export default [
             href: PATH_APP.management.user.profile
           },
           {
+            title: 'children',
+            href: PATH_APP.management.user.children
+          },
+          {
             title: 'cards',
             href: PATH_APP.management.user.cards
           },
