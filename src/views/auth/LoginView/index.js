@@ -145,29 +145,14 @@ function LoginView() {
         <div className={classes.content}>
           <Box sx={{ mb: 5 }}>
             <Typography variant="h4" gutterBottom>
-              Sign in to Minimal
+            We're happy to see you again!
             </Typography>
             <Typography color="textSecondary">
-              Enter your details below.
+              Use your favourite social account to log in.
             </Typography>
           </Box>
 
           <SocialLogin firebase={firebase} />
-
-          <Divider className={classes.divider}>
-            <Typography variant="body2" color="textSecondary">
-              OR
-            </Typography>
-          </Divider>
-
-          <Box sx={{ mb: 5 }}>
-            <Alert severity="info">
-              Use email : <strong>demo@minimals.cc</strong> / password :
-              <strong>&nbsp;demo1234</strong>
-            </Alert>
-          </Box>
-
-          <LoginForm formik={formik} />
 
           <Hidden smUp>
             <Box sx={{ mt: 3, typography: 'body2', textAlign: 'center' }}>
