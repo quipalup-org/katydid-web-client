@@ -69,7 +69,7 @@ function VerifyCodeView() {
   });
 
   return (
-    <Page title="Minimal | Verify" className={classes.root}>
+    <Page title="Katydid Verify" className={classes.root}>
       <header className={classes.header}>
         <RouterLink to="/">
           <Logo />

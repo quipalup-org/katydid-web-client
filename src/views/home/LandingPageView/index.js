@@ -26,7 +26,7 @@ function LandingPageView() {
   const classes = useStyles();
 
   return (
-    <Page title="Minimal | Home" id="move_top" className={classes.root}>
+    <Page title="Katydid Home" id="move_top" className={classes.root}>
       <Hero />
       <div className={classes.content}>
         <Minimal />

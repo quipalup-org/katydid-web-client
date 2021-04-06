@@ -117,7 +117,7 @@ function LoginView() {
   });
 
   return (
-    <Page title="Minimal | Login" className={classes.root}>
+    <Page title="Katydid Login" className={classes.root}>
       <header className={classes.header}>
         <RouterLink to="/">
           <Logo />
