@@ -78,7 +78,7 @@ function PricingView() {
   const classes = useStyles();
 
   return (
-    <Page title="Minimal | Pricing" className={classes.root}>
+    <Page title="Katydid Pricing" className={classes.root}>
       <header className={classes.header}>
         <RouterLink to="/">
           <Logo />

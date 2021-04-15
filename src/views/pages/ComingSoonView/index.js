@@ -83,7 +83,7 @@ function ComingSoonView() {
   const countdown = useCountdown(new Date('07/07/2022 21:30'));
 
   return (
-    <Page title="Minimal | Coming Soon!" className={classes.root}>
+    <Page title="Katydid Coming Soon!" className={classes.root}>
       <header className={classes.header}>
         <RouterLink to="/">
           <Logo />

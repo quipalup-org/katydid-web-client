@@ -148,7 +148,7 @@ function PaymentView() {
   });
 
   return (
-    <Page title="Minimal | Payment" className={classes.root}>
+    <Page title="Katydid Payment" className={classes.root}>
       <header className={classes.header}>
         <RouterLink to="/">
           <Logo />

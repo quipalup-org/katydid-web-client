@@ -36,7 +36,7 @@ function Page404View() {
   const classes = useStyles();
 
   return (
-    <Page title="Minimal | 404 Page Not Found" className={classes.root}>
+    <Page title="Katydid 404 Page Not Found" className={classes.root}>
       <header className={classes.header}>
         <RouterLink to="/">
           <Logo />

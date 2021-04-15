@@ -1,17 +1,20 @@
 import React, { lazy } from 'react';
 import { Redirect } from 'react-router-dom';
-import HomeLayout from '~/layouts/HomeLayout';
+//import HomeLayout from '~/layouts/HomeLayout';
+import AuthProtect from '~/components/Auth/AuthProtect';
+import DashboardLayout from '~/layouts/DashboardLayout'
 
 // ----------------------------------------------------------------------
 
 const HomeRoutes = {
   path: '*',
-  layout: HomeLayout,
+  guard: AuthProtect,
+  layout: DashboardLayout,
   routes: [
     {
       exact: true,
       path: '/',
-      component: lazy(() => import('src/views/home/LandingPageView'))
+      component: lazy(() => import('src/views/auth/LoginView'))
     },
     {
       exact: true,
@@ -22,6 +25,6 @@ const HomeRoutes = {
       component: () => <Redirect to="/404" />
     }
   ]
-};
+}
 
 export default HomeRoutes;
