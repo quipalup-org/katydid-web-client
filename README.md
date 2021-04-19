@@ -40,7 +40,7 @@ You can find detailed instructions on using Create React App and many tips in [i
 
 ## Configure your local machine
 
-1. Create a file `.env` with the following content:
+1. Create a file `.env` at the project root with the following content:
 
 ```
 REACT_APP_FIREBASE_API_KEY=
