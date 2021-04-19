@@ -38,6 +38,19 @@ Your app is ready to be deployed.
 
 You can find detailed instructions on using Create React App and many tips in [its documentation](https://facebook.github.io/create-react-app/).
 
+## Configure your local machine
+
+1. Create a file `.env` with the following content:
+
+```
+REACT_APP_FIREBASE_API_KEY=
+REACT_APP_FIREBASE_APPID=
+REACT_APP_FIREBASE_AUTH_DOMAIN=
+REACT_APP_FIREBASE_MEASUREMENT_ID=
+REACT_APP_FIREBASE_MESSAGING_SENDER_ID=
+REACT_APP_FIREBASE_PROJECT_ID=
+REACT_APP_FIREBASE_STORAGE_BUCKET=
+```
 
 ## Deployment on Heroku
 
