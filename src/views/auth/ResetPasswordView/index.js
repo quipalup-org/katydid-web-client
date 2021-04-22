@@ -69,7 +69,7 @@ function ResetPasswordView() {
   });
 
   return (
-    <Page title="Minimal | Reset Password" className={classes.root}>
+    <Page title="Katydid Reset Password" className={classes.root}>
       <header className={classes.header}>
         <RouterLink to="/">
           <Logo />

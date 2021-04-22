@@ -34,7 +34,7 @@ function MaintenanceView() {
   const classes = useStyles();
 
   return (
-    <Page title="Minimal | Maintenance" className={classes.root}>
+    <Page title="Katydid Maintenance" className={classes.root}>
       <header className={classes.header}>
         <RouterLink to="/">
           <Logo />

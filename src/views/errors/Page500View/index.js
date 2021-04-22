@@ -34,7 +34,7 @@ function Page500View() {
   const classes = useStyles();
 
   return (
-    <Page title="Minimal | 500 Internal Server Error" className={classes.root}>
+    <Page title="Katydid 500 Internal Server Error" className={classes.root}>
       <header className={classes.header}>
         <RouterLink to="/">
           <Logo />

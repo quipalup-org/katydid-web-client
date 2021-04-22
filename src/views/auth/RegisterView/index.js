@@ -129,7 +129,7 @@ function RegisterView() {
   });
 
   return (
-    <Page title="Minimal | Register" className={classes.root}>
+    <Page title="Katydid Register" className={classes.root}>
       <header className={classes.header}>
         <RouterLink to="/">
           <Logo />
