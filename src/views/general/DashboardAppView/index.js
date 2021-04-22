@@ -36,67 +36,6 @@ function DashboardAppView() {
           <Grid item xs={12} md={8}>
             <Welcome displayName={displayName} />
           </Grid>
-
-          {/*********************/}
-          <Grid item xs={12} md={4}>
-            <FeaturedApp />
-          </Grid>
-
-          {/*********************/}
-          <Grid item xs={12} md={4}>
-            <TotalActiveUsers />
-          </Grid>
-
-          <Grid item xs={12} md={4}>
-            <TotalInstalled />
-          </Grid>
-
-          <Grid item xs={12} md={4}>
-            <TotalDownloads />
-          </Grid>
-
-          {/*********************/}
-          <Grid item xs={12} md={6} lg={4}>
-            <CurrentDownload />
-          </Grid>
-
-          {/*********************/}
-          <Grid item xs={12} md={6} lg={8}>
-            <AreaInstalled />
-          </Grid>
-
-          {/*********************/}
-          <Grid item xs={12} lg={8}>
-            <NewInvoice />
-          </Grid>
-
-          {/*********************/}
-          <Grid item xs={12} md={6} lg={4}>
-            <TopRelatedApplications />
-          </Grid>
-
-          {/*********************/}
-          <Grid item xs={12} md={6} lg={4}>
-            <TopInstalledCountries />
-          </Grid>
-
-          {/*********************/}
-          <Grid item xs={12} md={6} lg={4}>
-            <TopAuthors />
-          </Grid>
-
-          {/*********************/}
-          <Grid item xs={12} md={6} lg={4}>
-            <Grid container spacing={3}>
-              <Grid item xs={12}>
-                <Widgets1 />
-              </Grid>
-              <Grid item xs={12}>
-                <Widgets2 />
-              </Grid>
-            </Grid>
-          </Grid>
-          {/*********************/}
         </Grid>
       </Container>
     </Page>
