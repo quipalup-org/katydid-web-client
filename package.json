@@ -102,7 +102,7 @@
     "react-svg": "^11.0.41",
     "recharts": "^1.8.5",
     "redux": "^4.0.5",
-    "redux-firestore": "^0.14.0",
+    "redux-firestore": "^0.15.0",
     "redux-persist": "^6.0.0",
     "simplebar-react": "^2.3.0",
     "slick-carousel": "^1.8.1",
