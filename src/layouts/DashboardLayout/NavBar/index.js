@@ -201,7 +201,7 @@ function NavBar({ isOpenNav, onCloseNav }) {
           </Box>
           <Box sx={{ mb: 2, typography: 'body2', color: 'grey.600' }}>
             Need help?
-            <br /> Please check our docs
+            <br /> Please don't hesitate to contact us.
           </Box>
 
           <Button
@@ -210,7 +210,7 @@ function NavBar({ isOpenNav, onCloseNav }) {
             variant="contained"
             component={RouterLink}
           >
-            Documentation
+            Contact
           </Button>
         </div>
       </Box>
