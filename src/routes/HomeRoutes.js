@@ -2,7 +2,7 @@ import React, { lazy } from 'react';
 import { Redirect } from 'react-router-dom';
 //import HomeLayout from '~/layouts/HomeLayout';
 import AuthProtect from '~/components/Auth/AuthProtect';
-import DashboardLayout from '~/layouts/DashboardLayout'
+import DashboardLayout from '~/layouts/DashboardLayout';
 
 // ----------------------------------------------------------------------
 
@@ -25,6 +25,6 @@ const HomeRoutes = {
       component: () => <Redirect to="/404" />
     }
   ]
-}
+};
 
 export default HomeRoutes;

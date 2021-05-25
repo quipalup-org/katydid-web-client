@@ -145,7 +145,7 @@ function LoginView() {
         <div className={classes.content}>
           <Box sx={{ mb: 5 }}>
             <Typography variant="h4" gutterBottom>
-            We're happy to see you again!
+              We're happy to see you again!
             </Typography>
             <Typography color="textSecondary">
               Use your favourite social account to log in.
