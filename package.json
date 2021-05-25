@@ -6,7 +6,8 @@
   "private": true,
   "scripts": {
     "lint": "eslint ./src",
-    "start": "react-app-rewired start",
+    "dev": "react-app-rewired start",
+    "start": "serve -s build -l $PORT",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
     "eject": "react-scripts eject"
@@ -70,7 +71,7 @@
     "immutable": "^4.0.0-rc.12",
     "intersection-observer": "^0.11.0",
     "lazysizes": "^5.3.0",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.21",
     "notistack": "^1.0.4-alpha.0",
     "nprogress": "^0.2.0",
     "prop-types": "^15.7.2",
@@ -80,7 +81,7 @@
     "react-compare-slider": "^1.2.0",
     "react-copy-to-clipboard": "^5.0.2",
     "react-dom": "^17.0.1",
-    "react-draft-wysiwyg": "^1.14.5",
+    "react-draft-wysiwyg": "^1.14.7",
     "react-dropzone": "^11.2.4",
     "react-helmet": "^6.1.0",
     "react-i18next": "^11.7.3",
@@ -104,6 +105,7 @@
     "redux": "^4.0.5",
     "redux-firestore": "^0.15.0",
     "redux-persist": "^6.0.0",
+    "serve": "^11.3.2",
     "simplebar-react": "^2.3.0",
     "slick-carousel": "^1.8.1",
     "yup": "^0.28.5"

@@ -1,0 +1,43 @@
+name: Deploy to github.io
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 14
+          registry-url: https://registry.npmjs.org/
+
+      - name: Set React environment using current directory
+        run: |
+          echo "PUBLIC_URL=/$(basename $(pwd))" >> $GITHUB_ENV
+
+      - name: npm install, lint
+        run: |
+          export GENERATE_SOURCEMAP=false
+          npm install
+          npm run lint:fix
+          npm run build
+          npm run test
+        env:
+          REACT_APP_BACKEND_URL: ${{ secrets.REACT_APP_BACKEND_URL }}
+          REACT_APP_FIREBASE_API_KEY: ${{secrets.REACT_APP_FIREBASE_API_KEY}}
+          REACT_APP_FIREBASE_APPID: ${{secrets.REACT_APP_FIREBASE_APPID}}
+          REACT_APP_FIREBASE_AUTH_DOMAIN: ${{secrets.REACT_APP_FIREBASE_AUTH_DOMAIN}}
+          REACT_APP_FIREBASE_MEASUREMENT_ID: ${{secrets.REACT_APP_FIREBASE_MEASUREMENT_ID}}
+          REACT_APP_FIREBASE_MESSAGING_SENDER_ID: ${{secrets.REACT_APP_FIREBASE_MESSAGING_SENDER_ID}}
+          REACT_APP_FIREBASE_PROJECT_ID: ${{secrets.REACT_APP_FIREBASE_PROJECT_ID}}
+          REACT_APP_FIREBASE_STORAGE_BUCKET: ${{secrets.REACT_APP_FIREBASE_STORAGE_BUCKET}}
+
+      - name: Deploy to Heroku
+        uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
+          heroku_email: ${{secrets.HEROKU_EMAIL}}
