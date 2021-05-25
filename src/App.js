@@ -15,7 +15,6 @@ import LocalizationProvider from '@material-ui/lab/LocalizationProvider';
 const history = createBrowserHistory();
 
 function App() {
-  console.log('ok');
   return (
     <ThemeConfig>
       <LocalizationProvider dateAdapter={AdapterDateFns}>
