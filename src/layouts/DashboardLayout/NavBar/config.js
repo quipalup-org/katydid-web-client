@@ -42,12 +42,11 @@ export default [
           {
             title: 'children',
             href: PATH_APP.management.user.children
-          },
+          }
         ]
       }
     ]
   },
-
 
   // MAIN DASHBOARD
   // ----------------------------------------------------------------------
