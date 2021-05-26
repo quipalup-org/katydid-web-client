@@ -6,7 +6,8 @@
   "private": true,
   "scripts": {
     "lint:fix": "eslint \"src/**/*.{ts,js,jsx}\" --fix",
-    "start": "react-app-rewired start",
+    "dev": "react-app-rewired start",
+    "start": "serve -s build -l $PORT",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
     "eject": "react-scripts eject"
