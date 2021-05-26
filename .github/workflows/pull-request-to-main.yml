@@ -22,6 +22,7 @@ jobs:
         run: |
           export GENERATE_SOURCEMAP=false
           npm install
+          unset CI
           npm run lint:fix
           npm run build
           npm run test
