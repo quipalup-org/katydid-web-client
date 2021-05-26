@@ -1,4 +1,4 @@
-name: Deploy to github.io
+name: Push to main
 
 on:
   push:
