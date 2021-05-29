@@ -1,82 +1,143 @@
-> This project uses the firebase login method
+[![Issues][issues-shield]][issues-url]
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-0-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
-> I give you a demo account in file `.env.example`. You need to rename it `.env` before `npm run start`
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <a href="https://katydid-app.herokuapp.com">
+    <img src="" alt="Logo" width="175">
+  </a>
 
----
+  <h1 align="center">Katydid-web-client</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+  <p align="center">
+    The frontend repo for Katydid project
+    <br />
+    <a href="https://github.com/code-sherpas/katydid-web-client"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/code-sherpas/katydid-web-client">View Demo</a>
+    ·
+    <a href="https://github.com/code-sherpas/katydid-web-client/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/code-sherpas/katydid-web-client/issues">Request Feature</a>
+  </p>
+</p>
 
-## Available Scripts
 
-In the project directory, you can run:
 
-### `npm start` or `yarn start`
+<!-- TABLE OF CONTENTS -->
+## Table of Contents
 
-Runs the app in development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+* [About the Project](#about-the-project)
+  * [Built With](#built-with)
+* [Getting Started](#getting-started)
+  * [Prerequisites](#prerequisites)
+  * [Installation](#installation)
+* [Usage](#usage)
+* [Roadmap](#roadmap)
+* [Contributing](#contributing)
+* [License](#license)
+* [Contributors](#contributors-)
 
-The page will automatically reload if you make changes to the code.<br>
-You will see the build errors and lint warnings in the console.
 
-### `npm test` or `yarn test`
 
-Runs the test watcher in an interactive mode.<br>
-By default, runs tests related to files changed since the last commit.
+<!-- ABOUT THE PROJECT -->
+## About The Project
 
-[Read more about testing.](https://facebook.github.io/create-react-app/docs/running-tests)
+<p align="center">
+  <a href="https://katydid-app.herokuapp.com">
+  </a>
+</p>
 
-### `npm run build` or `yarn build`
+Check out a live demo [here](https://katydid-app.herokuapp.com).
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Katydid is a web application for a **daycare service**. This application empowers parents and guardians to pursue their professional goals and also look after their ward. 
 
-The build is minified and the filenames include the hashes.<br>
+This application has features like: listing all children that are in the daycare service on a particular day and time, examining a child's meal log entries etc. 
 
-Your app is ready to be deployed.
+### Built With
 
-## User Guide
+* [react](https://reactjs.org)
+* [material-ui](https://www.npmjs.com/package/@material-ui/core)
+* [redux](https://www.npmjs.com/package/redux)
+* [firebase](https://www.npmjs.com/package/firebase)
+* [axios](https://www.npmjs.com/package/axios)
+* [clsx](https://www.npmjs.com/package/clsx)
+* [serve](https://www.npmjs.com/package/serve)
+* [prop-types](https://www.npmjs.com/package/prop-types)
+* [react-router-dom](https://www.npmjs.com/package/react-router-dom)
+* [react-dom](https://www.npmjs.com/package/react-dom)
 
-You can find detailed instructions on using Create React App and many tips in [its documentation](https://facebook.github.io/create-react-app/).
+<!-- GETTING STARTED -->
+## Getting Started
 
-## Configure your local machine
+To get a local copy up and running follow these simple steps.
 
-1. Create a file `.env` at the project root with the following content:
+### Prerequisites
 
+* npm
+* node
+
+### Installation
+ 
+1. Clone the repo
+```sh
+git clone https://github.com/code-sherpas/katydid-web-client.git
 ```
-REACT_APP_FIREBASE_API_KEY=
-REACT_APP_FIREBASE_APPID=
-REACT_APP_FIREBASE_AUTH_DOMAIN=
-REACT_APP_FIREBASE_MEASUREMENT_ID=
-REACT_APP_FIREBASE_MESSAGING_SENDER_ID=
-REACT_APP_FIREBASE_PROJECT_ID=
-REACT_APP_FIREBASE_STORAGE_BUCKET=
+2. Install NPM packages
+```sh
+npm install
+```
+3. Add the necessary environment variables to a `.env` file.
+```sh
+{
+        echo '  REACT_APP_FIREBASE_API_KEY='
+        echo '  REACT_APP_FIREBASE_APPID='
+        echo '  REACT_APP_FIREBASE_AUTH_DOMAIN='
+        echo '  REACT_APP_FIREBASE_MEASUREMENT_ID='
+        echo '  REACT_APP_FIREBASE_MESSAGING_SENDER_ID='
+        echo '  REACT_APP_FIREBASE_PROJECT_ID='  
+        echo '  REACT_APP_FIREBASE_STORAGE_BUCKET='
+        echo '  REACT_APP_BACKEND_URL='
+} >> .env
 ```
 
-## Deployment on Heroku
 
-### Configuration
 
-*Step 1*
+<!-- USAGE EXAMPLES -->
+## Usage
 
-Go to `Settings -> Config Vars` and set the env. variables:
+1. Start react app
 
+```sh
+npm start
 ```
-REACT_APP_FIREBASE_API_KEY
-REACT_APP_FIREBASE_APPID
-REACT_APP_FIREBASE_AUTH_DOMAIN
-REACT_APP_FIREBASE_MEASUREMENT_ID
-REACT_APP_FIREBASE_MESSAGING_SENDER_ID
-REACT_APP_FIREBASE_PROJECT_ID
-REACT_APP_FIREBASE_STORAGE_BUCKET
-```
-*Step 2*
 
-Go to `Settings -> Buildpacks -> Add buildpack` and add `https://github.com/mars/create-react-app-buildpack.git`
 
-### Trigger deployment
 
-`git push heroku main`
+<!-- ROADMAP -->
+## Roadmap
 
-### Open the deployed app
+See the [open issues](https://github.com/code-sherpas/katydid-web-client/issues) for a list of proposed features (and known issues).
 
-`heroku open`
+
+
+<!-- CONTRIBUTING -->
+## Contributing
+
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.  :smile:
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'feat: Add some AmazingFeature'`)
+4. Push to the Branch (`git push -u origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+<!-- LICENSE -->
+## License
+
+Distributed under the MIT License. See [`LICENSE`](./LICENSE) for more information.
+
