@@ -13,7 +13,7 @@
   <h1 align="center">Katydid-web-client</h1>
 
   <p align="center">
-    The frontend repo for Katydid project
+    The frotend repo for Katydid project
     <br />
     <a href="https://github.com/code-sherpas/katydid-web-client"><strong>Explore the docs »</strong></a>
     <br />
@@ -141,3 +141,10 @@ Contributions are what make the open source community such an amazing place to b
 
 Distributed under the MIT License. See [`LICENSE`](./LICENSE) for more information.
 
+
+
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[issues-shield]: https://img.shields.io/github/code-sherpas/katydid-web-client/issues/?style=flat-square
+[issues-url]: https://github.com/code-sherpas/katydid-web-client/issues
