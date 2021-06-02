@@ -10,6 +10,7 @@ import chatReducer from './slices/chat';
 import blogReducer from './slices/blog';
 import productReducer from './slices/product';
 import userReducer from './slices/user';
+import childrenReducer from './slices/children';
 import notificationsReducer from './slices/notifications';
 
 // ----------------------------------------------------------------------
@@ -39,7 +40,8 @@ const rootReducer = combineReducers({
   blog: blogReducer,
   product: persistReducer(productPersistConfig, productReducer),
   user: userReducer,
-  notifications: notificationsReducer
+  notifications: notificationsReducer,
+  chilren: childrenReducer
 });
 
 export { rootPersistConfig, rootReducer };
