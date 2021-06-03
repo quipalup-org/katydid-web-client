@@ -41,7 +41,7 @@ const rootReducer = combineReducers({
   product: persistReducer(productPersistConfig, productReducer),
   user: userReducer,
   notifications: notificationsReducer,
-  chilren: childrenReducer
+  children: childrenReducer
 });
 
 export { rootPersistConfig, rootReducer };

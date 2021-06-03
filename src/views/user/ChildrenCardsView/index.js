@@ -2,7 +2,6 @@ import UserList from './UserList';
 import Page from '~/components/Page';
 import React, { useEffect } from 'react';
 import { PATH_APP } from '~/routes/paths';
-// import { getChildren } from '~/redux/slices/user';
 import { getChildren } from '~/redux/slices/children';
 import { useDispatch, useSelector } from 'react-redux';
 import HeaderDashboard from '~/components/HeaderDashboard';
@@ -20,12 +19,13 @@ const useStyles = makeStyles(theme => ({
 function ChildrenCardsView() {
   const classes = useStyles();
   const dispatch = useDispatch();
-  const { children } = useSelector(state => state.user);
+  const children = useSelector(state => state.children);
 
   useEffect(() => {
     dispatch(getChildren());
   }, [dispatch]);
 
+  console.log(children);
   return (
     <Page title="Management | User Cards" className={classes.root}>
       <Container>
@@ -38,7 +38,9 @@ function ChildrenCardsView() {
             { name: 'Cards' }
           ]}
         />
-        <UserList users={children !== null ? children.data : []} />
+        <UserList
+          users={children.children !== null ? children.children.data : []}
+        />
       </Container>
     </Page>
   );
