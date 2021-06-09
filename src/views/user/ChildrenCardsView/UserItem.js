@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Icon } from '@iconify/react';
@@ -16,7 +16,9 @@ import {
   CardActions,
   CardContent,
   CardMedia,
-  Typography
+  Typography,
+  Switch,
+  Box
 } from '@material-ui/core';
 import { MIcon } from '~/@material-extend';
 
@@ -96,6 +98,14 @@ function UserItem({ user, className }) {
   const classes = useStyles();
   const { name, portraitURL } = user;
 
+  const [state, setState] = useState({
+    checked: true,
+  });
+
+  const handleChange = (event) => {
+    setState({ ...state, [event.target.name]: event.target.checked });
+  };
+
   let index = getRandomInt(1, 24);
 
   return (
@@ -138,6 +148,18 @@ function UserItem({ user, className }) {
             {name}
           </Typography>
         </CardContent>
+        <Box
+          justifyContent="flex-end"
+          flexDirection="row"
+          width={1}
+        >
+          <Switch
+            checked={state.checked}
+            onChange={handleChange}
+            name="checkedA"
+            inputProps={{ 'aria-label': 'secondary checkbox' }}
+          />
+        </Box>
       </Card>
     </CardActionArea>
   );
