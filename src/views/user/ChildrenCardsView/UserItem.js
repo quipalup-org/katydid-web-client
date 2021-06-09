@@ -1,24 +1,22 @@
 import clsx from 'clsx';
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Icon } from '@iconify/react';
 import twitterFill from '@iconify-icons/eva/twitter-fill';
 import linkedinFill from '@iconify-icons/eva/linkedin-fill';
 import facebookFill from '@iconify-icons/eva/facebook-fill';
 import instagramFilled from '@iconify-icons/ant-design/instagram-filled';
-import { getImgAvatar, getImgCover } from '~/utils/getImages';
-import { alpha, makeStyles } from '@material-ui/core/styles';
+import { getImgAvatar } from '~/utils/getImages';
+import { makeStyles } from '@material-ui/core/styles';
 import {
   Avatar,
   Card,
   CardActionArea,
-  CardActions,
   CardContent,
-  CardMedia,
-  Typography
+  Typography,
+  Switch,
+  Box
 } from '@material-ui/core';
-import { MIcon } from '~/@material-extend';
 
 // ----------------------------------------------------------------------
 
@@ -47,7 +45,7 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     position: 'relative',
     justifyContent: 'center',
-    paddingTop: 'calc(100% * 9 / 16)',
+    paddingTop: 'calc(100% * 5 / 16)',
     '&:before': {
       top: 0,
       zIndex: 9,
@@ -57,21 +55,8 @@ const useStyles = makeStyles(theme => ({
       position: 'absolute',
       backdropFilter: 'blur(3px)',
       borderTopLeftRadius: theme.shape.borderRadiusMd,
-      borderTopRightRadius: theme.shape.borderRadiusMd,
-      backgroundColor: alpha(theme.palette.primary.darker, 0.72)
+      borderTopRightRadius: theme.shape.borderRadiusMd
     }
-  },
-  cardMedia: {
-    top: 0,
-    zIndex: 8,
-    width: '100%',
-    height: '100%',
-    position: 'absolute'
-  },
-  avatarShape: {
-    zIndex: 10,
-    bottom: -26,
-    position: 'absolute'
   },
   cardContent: {
     paddingBottom: 0,
@@ -96,40 +81,30 @@ function UserItem({ user, className }) {
   const classes = useStyles();
   const { name, portraitURL } = user;
 
+  const [state, setState] = useState({
+    checkedA: true
+  });
+
+  const handleChange = event => {
+    setState({ ...state, [event.target.name]: event.target.checked });
+  };
+
   let index = getRandomInt(1, 24);
 
   return (
-    <CardActionArea component={Link} to="/">
+    <CardActionArea>
       <Card className={clsx(classes.root, className)}>
         <div className={classes.cardMediaWrap}>
-          <MIcon
-            size={144}
-            color="paper"
-            src="/static/icons/shape-avatar.svg"
-            className={classes.avatarShape}
-          />
           <Avatar
             alt={name}
             src={getImgAvatar(index)}
             sx={{
-              width: 64,
-              height: 64,
+              width: 88,
+              height: 88,
               zIndex: 11,
               position: 'absolute',
               transform: 'translateY(-50%)'
             }}
-          />
-          <CardMedia
-            component="img"
-            title="cover"
-            data-sizes="auto"
-            src="/static/images/placeholder.svg"
-            data-src={getImgCover(600, index)}
-            data-srcset={`${getImgCover(600, index)} 600w, ${getImgCover(
-              960,
-              index
-            )} 960w`}
-            className={clsx(classes.cardMedia, 'lazyload blur-up')}
           />
         </div>
 
@@ -138,6 +113,13 @@ function UserItem({ user, className }) {
             {name}
           </Typography>
         </CardContent>
+        <Box display="flex" justifyContent="flex-end" width={1} padding={2}>
+          <Switch
+            checked={state.checkedA}
+            onChange={handleChange}
+            name="checkedA"
+          />
+        </Box>
       </Card>
     </CardActionArea>
   );
