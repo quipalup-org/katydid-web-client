@@ -9,9 +9,11 @@ import {
   CardActionArea,
   CardContent,
   Typography,
-  Box
+  Box,
+  Collapse
 } from '@material-ui/core';
-import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import IconButton from '@material-ui/core/IconButton';
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 
 // ----------------------------------------------------------------------
@@ -43,6 +45,16 @@ const useStyles = makeStyles(theme => ({
     width: '5%',
     height: '5%',
     padding: '0.25rem'
+  },
+  expand: {
+    transform: 'rotate(0deg)',
+    marginLeft: 'auto',
+    transition: theme.transitions.create('transform', {
+      duration: theme.transitions.duration.shortest
+    })
+  },
+  expandOpen: {
+    transform: 'rotate(180deg)'
   }
 }));
 
@@ -55,6 +67,11 @@ LogEntry.propTypes = {
 
 function LogEntry({ className }) {
   const classes = useStyles();
+  const [expanded, setExpanded] = React.useState(false);
+
+  const handleExpandClick = () => {
+    setExpanded(!expanded);
+  };
 
   const date = new Date().toLocaleTimeString('en-US', {
     hour12: false,
@@ -93,9 +110,32 @@ function LogEntry({ className }) {
             {date}
           </Typography>
           <Box textAlign="center">
-            <KeyboardArrowDownIcon />
+            <IconButton
+              className={clsx(classes.expand, {
+                [classes.expandOpen]: expanded
+              })}
+              onClick={handleExpandClick}
+              aria-expanded={expanded}
+              aria-label="show more"
+            >
+              <ExpandMoreIcon />
+            </IconButton>
           </Box>
         </CardContent>
+        <Collapse in={expanded} timeout="auto" unmountOnExit>
+          <CardContent>
+            <Typography paragraph>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
+              quis magna eu est viverra egestas. Morbi porta lacinia massa, ac
+              interdum dui bibendum non. Mauris vitae justo et est hendrerit
+              pellentesque ac sed diam. Curabitur suscipit, eros at luctus
+              dignissim, orci nulla lacinia neque, at viverra erat lacus vel ex.
+              Praesent facilisis a justo in ultricies. Maecenas at fringilla
+              libero, sollicitudin vulputate turpis. Proin eleifend nisi velit.
+              Sed ut mi justo.
+            </Typography>
+          </CardContent>
+        </Collapse>
       </Card>
     </CardActionArea>
   );
