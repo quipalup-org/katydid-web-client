@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Icon } from '@iconify/react';
 import twitterFill from '@iconify-icons/eva/twitter-fill';
@@ -93,7 +94,11 @@ function UserItem({ user, className }) {
 
   return (
     <CardActionArea>
-      <Card className={clsx(classes.root, className)}>
+      <Card
+        className={clsx(classes.root, className)}
+        component={Link}
+        to="/log-entries"
+      >
         <div className={classes.cardMediaWrap}>
           <Avatar
             alt={name}

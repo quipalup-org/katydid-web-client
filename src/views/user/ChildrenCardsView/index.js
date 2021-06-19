@@ -25,7 +25,6 @@ function ChildrenCardsView() {
     dispatch(getChildren());
   }, [dispatch]);
 
-  console.log(children);
   return (
     <Page title="Management | User Cards" className={classes.root}>
       <Container>
