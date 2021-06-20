@@ -7,6 +7,7 @@ import {
   Avatar,
   Card,
   CardActionArea,
+  CardHeader,
   CardContent,
   Typography,
   Box,
@@ -15,6 +16,7 @@ import {
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import IconButton from '@material-ui/core/IconButton';
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
+import MoreVertIcon from '@material-ui/icons/MoreVert';
 
 // ----------------------------------------------------------------------
 
@@ -85,6 +87,13 @@ function LogEntry({ className }) {
         display="flex"
         justifyContent="between"
       >
+        <CardHeader
+          action={
+            <IconButton aria-label="settings">
+              <MoreVertIcon />
+            </IconButton>
+          }
+        />
         <div className={classes.cardMediaWrap}>
           <Avatar
             variant="square"

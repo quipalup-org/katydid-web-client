@@ -5,7 +5,7 @@ import { PATH_APP } from '~/routes/paths';
 import { makeStyles } from '@material-ui/core/styles';
 import { useDispatch, useSelector } from 'react-redux';
 import Page from '~/components/Page';
-import { Container } from '@material-ui/core';
+import { Container, Avatar, Box } from '@material-ui/core';
 import HeaderDashboard from '~/components/HeaderDashboard';
 import DateDisplay from '~/components/Date/date';
 
@@ -38,7 +38,10 @@ function LogEntryCardsView() {
             { name: 'Log entries' }
           ]}
         />
-        <DateDisplay />
+        <Box display="flex">
+          <Avatar sx={{ marginRight: 2 }}>R</Avatar>
+          <DateDisplay />
+        </Box>
         <LogEntryList
           logEntry={logEntry.logEntry !== null ? logEntry.logEntry.data : []}
         />
