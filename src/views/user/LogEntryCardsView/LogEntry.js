@@ -11,13 +11,15 @@ import {
   CardContent,
   Typography,
   Box,
-  Collapse
+  Collapse,
+  Rating,
+  TextField
 } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import IconButton from '@material-ui/core/IconButton';
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
-
+import SendIcon from '@material-ui/icons/Send';
 // ----------------------------------------------------------------------
 
 const useStyles = makeStyles(theme => ({
@@ -111,9 +113,13 @@ function LogEntry({ className }) {
 
         <CardContent className={classes.cardContent}>
           <Box display="flex" justifyContent="center" width={1}>
-            <FiberManualRecordIcon />
-            <FiberManualRecordIcon />
-            <FiberManualRecordIcon />
+            <Rating
+              defaultValue={0}
+              precision={0.5}
+              max={4}
+              emptyIcon={<FiberManualRecordIcon />}
+              icon={<FiberManualRecordIcon />}
+            />
           </Box>
           <Typography variant="h6" align="center">
             {date}
@@ -137,12 +143,20 @@ function LogEntry({ className }) {
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
               quis magna eu est viverra egestas. Morbi porta lacinia massa, ac
               interdum dui bibendum non. Mauris vitae justo et est hendrerit
-              pellentesque ac sed diam. Curabitur suscipit, eros at luctus
-              dignissim, orci nulla lacinia neque, at viverra erat lacus vel ex.
-              Praesent facilisis a justo in ultricies. Maecenas at fringilla
-              libero, sollicitudin vulputate turpis. Proin eleifend nisi velit.
-              Sed ut mi justo.
+              pellentesque ac sed diam.
             </Typography>
+            <Box
+              display="flex"
+              justifyContent="space-between"
+              alignItems="center"
+              width={1}
+            >
+              <TextField
+                placeholder="Enter your comment here."
+                fullWidth={true}
+              />
+              <SendIcon sx={{ ml: 2 }} />
+            </Box>
           </CardContent>
         </Collapse>
       </Card>
