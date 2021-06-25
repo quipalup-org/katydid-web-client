@@ -13,13 +13,18 @@ import {
   Box,
   Collapse,
   Rating,
-  TextField
+  TextField,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText
 } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import IconButton from '@material-ui/core/IconButton';
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import SendIcon from '@material-ui/icons/Send';
+import EditIcon from '@material-ui/icons/Edit';
 // ----------------------------------------------------------------------
 
 const useStyles = makeStyles(theme => ({
@@ -72,9 +77,16 @@ LogEntry.propTypes = {
 function LogEntry({ className }) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
+  const [newLog, setNewLog] = React.useState('');
+  const [logEntries, setLogEntries] = React.useState([]);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
+  };
+
+  const handleSubmit = () => {
+    setLogEntries(logEntries.concat(newLog));
+    setNewLog('');
   };
 
   const date = new Date().toLocaleTimeString('en-US', {
@@ -140,10 +152,18 @@ function LogEntry({ className }) {
         <Collapse in={expanded} timeout="auto" unmountOnExit>
           <CardContent>
             <Typography paragraph>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
-              quis magna eu est viverra egestas. Morbi porta lacinia massa, ac
-              interdum dui bibendum non. Mauris vitae justo et est hendrerit
-              pellentesque ac sed diam.
+              {logEntries.map(logEntry => (
+                <List>
+                  <ListItem>
+                    <ListItemText>{logEntry}</ListItemText>
+                    <ListItemIcon>
+                      <IconButton>
+                        <EditIcon />
+                      </IconButton>
+                    </ListItemIcon>
+                  </ListItem>
+                </List>
+              ))}
             </Typography>
             <Box
               display="flex"
@@ -154,8 +174,12 @@ function LogEntry({ className }) {
               <TextField
                 placeholder="Enter your comment here."
                 fullWidth={true}
+                value={newLog}
+                onChange={e => setNewLog(e.target.value)}
               />
-              <SendIcon sx={{ ml: 2 }} />
+              <IconButton onClick={handleSubmit}>
+                <SendIcon sx={{ ml: 2 }} />
+              </IconButton>
             </Box>
           </CardContent>
         </Collapse>
