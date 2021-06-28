@@ -14,17 +14,14 @@ import {
   Collapse,
   Rating,
   TextField,
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText
+  List
 } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import IconButton from '@material-ui/core/IconButton';
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import SendIcon from '@material-ui/icons/Send';
-import EditIcon from '@material-ui/icons/Edit';
+import Editable from '~/components/Editable/editable';
 // ----------------------------------------------------------------------
 
 const useStyles = makeStyles(theme => ({
@@ -153,15 +150,8 @@ function LogEntry({ className }) {
           <CardContent>
             <Typography paragraph>
               {logEntries.map(logEntry => (
-                <List>
-                  <ListItem>
-                    <ListItemText>{logEntry}</ListItemText>
-                    <ListItemIcon>
-                      <IconButton>
-                        <EditIcon />
-                      </IconButton>
-                    </ListItemIcon>
-                  </ListItem>
+                <List width={1} sx={{ p: 0 }}>
+                  <Editable logEntry={logEntry} />
                 </List>
               ))}
             </Typography>
