@@ -37,7 +37,6 @@ function LogEntryList({ logEntry, className }) {
 
   return (
     <Grid container spacing={3} className={clsx(classes.root, className)}>
-      {console.log(logEntry)}
       {logEntry.map(log => (
         <Grid key={log.id} item xs={12} sm={6} md={4}>
           <LogEntry />
