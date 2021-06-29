@@ -3,7 +3,7 @@ export default function exampleResponse() {
     data: [
       {
         id: '550e8400-e29b-41d4-a716-446655440000',
-        type: 'meal-log-entry',
+        type: 'meal',
         attributes: {
           time: 123345534,
           description: 'Yogurt with strawberries',
@@ -13,10 +13,10 @@ export default function exampleResponse() {
       },
       {
         id: '550e8400-e29b-41d4-a716-446655441234',
-        type: 'nap-log-entry',
+        type: 'nap',
         attributes: {
           time: 1234,
-          durationInSeconds: 2472243
+          duration: 2472243
         }
       }
     ]
