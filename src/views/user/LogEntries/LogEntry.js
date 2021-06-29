@@ -22,6 +22,7 @@ import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import SendIcon from '@material-ui/icons/Send';
 import Editable from '~/components/Editable/editable';
+import checkIfEmpty from '~/utils/validation';
 // ----------------------------------------------------------------------
 
 const useStyles = makeStyles(theme => ({
@@ -61,6 +62,10 @@ const useStyles = makeStyles(theme => ({
   },
   expandOpen: {
     transform: 'rotate(180deg)'
+  },
+  errorText: {
+    color: 'red',
+    opacity: 0.7
   }
 }));
 
@@ -76,14 +81,20 @@ function LogEntry({ className }) {
   const [expanded, setExpanded] = React.useState(false);
   const [newLog, setNewLog] = React.useState('');
   const [logEntries, setLogEntries] = React.useState([]);
+  const [showError, setShowError] = React.useState(false);
 
   const handleExpandClick = () => {
-    setExpanded(!expanded);
+    // setExpanded(!expanded);
   };
 
   const handleSubmit = () => {
-    setLogEntries(logEntries.concat(newLog));
-    setNewLog('');
+    if (checkIfEmpty(newLog)) {
+      setShowError(true);
+    } else {
+      setLogEntries(logEntries.concat(newLog));
+      setNewLog('');
+      setShowError(false);
+    }
   };
 
   const date = new Date().toLocaleTimeString('en-US', {
@@ -171,6 +182,17 @@ function LogEntry({ className }) {
                 <SendIcon sx={{ ml: 2 }} />
               </IconButton>
             </Box>
+            {showError ? (
+              <Typography
+                align="center"
+                sx={{ mt: 2 }}
+                className={classes.errorText}
+              >
+                Field cannot be empty
+              </Typography>
+            ) : (
+              <></>
+            )}
           </CardContent>
         </Collapse>
       </Card>
