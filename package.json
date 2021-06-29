@@ -4,7 +4,6 @@
   "licence": "UNLICENSED",
   "version": "1.0.0",
   "private": true,
-  "config-overrides-path": "node_modules/react-app-rewired/config-overrides.js",
   "scripts": {
     "lint:fix": "eslint \"src/**/*.{ts,js,jsx}\" --fix",
     "dev": "react-app-rewired start",
