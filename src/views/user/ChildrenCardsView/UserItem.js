@@ -94,11 +94,7 @@ function UserItem({ user, className }) {
 
   return (
     <CardActionArea>
-      <Card
-        className={clsx(classes.root, className)}
-        component={Link}
-        to="/log-entries"
-      >
+      <Card className={clsx(classes.root, className)}>
         <div className={classes.cardMediaWrap}>
           <Avatar
             alt={name}
