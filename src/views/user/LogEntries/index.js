@@ -1,12 +1,13 @@
-import UserList from './UserList';
-import Page from '~/components/Page';
 import React, { useEffect } from 'react';
+import LogEntryList from './LogEntryList';
+import { getlogEntry } from '~/redux/slices/log-entry';
 import { PATH_APP } from '~/routes/paths';
-import { getChildren } from '~/redux/slices/children';
-import { useDispatch, useSelector } from 'react-redux';
-import HeaderDashboard from '~/components/HeaderDashboard';
 import { makeStyles } from '@material-ui/core/styles';
-import { Container } from '@material-ui/core';
+import { useDispatch, useSelector } from 'react-redux';
+import Page from '~/components/Page';
+import { Container, Avatar, Box } from '@material-ui/core';
+import HeaderDashboard from '~/components/HeaderDashboard';
+import DateDisplay from '~/components/Date/date';
 
 // ----------------------------------------------------------------------
 
@@ -16,33 +17,37 @@ const useStyles = makeStyles(theme => ({
 
 // ----------------------------------------------------------------------
 
-function ChildrenCardsView() {
+function LogEntryCardsView() {
   const classes = useStyles();
   const dispatch = useDispatch();
-  const children = useSelector(state => state.children);
+  const logEntry = useSelector(state => state.logEntry);
 
   useEffect(() => {
-    dispatch(getChildren());
+    dispatch(getlogEntry());
   }, [dispatch]);
 
   return (
     <Page title="Management | User Cards" className={classes.root}>
       <Container>
         <HeaderDashboard
-          heading="User Cards"
+          heading="Log Entries"
           links={[
             { name: 'Dashboard', href: PATH_APP.root },
             { name: 'Management', href: PATH_APP.management.root },
             { name: 'User', href: PATH_APP.management.user.root },
-            { name: 'Cards' }
+            { name: 'Log entries' }
           ]}
         />
-        <UserList
-          users={children.children !== null ? children.children.data : []}
+        <Box display="flex">
+          <Avatar sx={{ marginRight: 2 }}>R</Avatar>
+          <DateDisplay />
+        </Box>
+        <LogEntryList
+          logEntry={logEntry.logEntry !== null ? logEntry.logEntry.data : []}
         />
       </Container>
     </Page>
   );
 }
 
-export default ChildrenCardsView;
+export default LogEntryCardsView;
