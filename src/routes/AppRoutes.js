@@ -100,7 +100,7 @@ const AppRoutes = {
     {
       exact: true,
       path: PATH_APP.management.user.logEntries,
-      component: lazy(() => import('~/views/user/LogEntryCardsView'))
+      component: lazy(() => import('~/views/user/LogEntries'))
     },
     {
       exact: true,
