@@ -15,6 +15,6 @@ jobs:
 
       - name: Build katydid-web-client image
         run: |
-          echo $PAT_TOKEN | docker login ghcr.io -u code-sherpas --password-stdin
+          echo $PAT_TOKEN | docker login ghcr.io -u ashikka --password-stdin
         env:
           CR_PAT: ${{ secrets.PAT_TOKEN }}
