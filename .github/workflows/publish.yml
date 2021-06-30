@@ -7,7 +7,7 @@ on:
       - feat/docker
 
 jobs:
-  publish-hello-world-image:
+  publish-katydid-web-client-image:
     runs-on: ubuntu-latest
 
     steps:
@@ -15,6 +15,6 @@ jobs:
 
       - name: Build katydid-web-client image
         run: |
-          echo $PAT_TOKEN | docker login ghcr.io -u ashikka --password-stdin
+          echo $GITHUB_TOKEN | docker login ghcr.io -u code-sherpas --password-stdin
         env:
-          CR_PAT: ${{ secrets.PAT_TOKEN }}
+          CR_PAT: ${{ secrets.GITHUB_TOKEN }}
