@@ -5,7 +5,7 @@ export default function exampleResponse() {
         id: '550e8400-e29b-41d4-a716-446655440000',
         type: 'meal',
         attributes: {
-          childId: 'sample-child-id-1',
+          childId: '5ee62461-adb8-4618-a110-06290a787223',
           time: '12:54',
           description: 'Yogurt with strawberries',
           amount: 100,
@@ -20,7 +20,7 @@ export default function exampleResponse() {
         id: '550e8400-e29b-41d4-a716-446655441234',
         type: 'nap',
         attributes: {
-          childId: 'sample-child-id-1',
+          childId: '5ee62461-adb8-4618-a110-06290a787223',
           time: '18:39',
           duration: 59
         },
