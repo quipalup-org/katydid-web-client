@@ -34,12 +34,11 @@ LogEntryList.propTypes = {
 
 function LogEntryList({ logEntry, className }) {
   const classes = useStyles();
-
   return (
     <Grid container spacing={3} className={clsx(classes.root, className)}>
       {logEntry.map(log => (
         <Grid key={log.id} item xs={12} sm={6} md={4}>
-          <LogEntry />
+          <LogEntry logEntryKind={log} />
         </Grid>
       ))}
 

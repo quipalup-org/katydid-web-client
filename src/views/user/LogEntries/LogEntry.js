@@ -23,6 +23,7 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 import SendIcon from '@material-ui/icons/Send';
 import Editable from '~/components/Editable/editable';
 import checkIfEmpty from '~/utils/validation';
+import convertAmount from '~/utils/convertAmount';
 // ----------------------------------------------------------------------
 
 const useStyles = makeStyles(theme => ({
@@ -76,7 +77,7 @@ LogEntry.propTypes = {
   className: PropTypes.string
 };
 
-function LogEntry({ className }) {
+function LogEntry({ className, logEntryKind }) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
   const [newLog, setNewLog] = React.useState('');
@@ -97,11 +98,11 @@ function LogEntry({ className }) {
     }
   };
 
-  const date = new Date().toLocaleTimeString('en-US', {
-    hour12: false,
-    hour: 'numeric',
-    minute: 'numeric'
-  });
+  const amount = logEntryKind.attributes.amount
+    ? convertAmount(logEntryKind.attributes.amount)
+    : convertAmount(logEntryKind.attributes.duration);
+
+  console.log(amount);
   return (
     <CardActionArea>
       <Card
@@ -120,7 +121,7 @@ function LogEntry({ className }) {
           <Avatar
             variant="square"
             alt={'log-entry'}
-            src={'https://image.flaticon.com/icons/png/512/2648/2648958.png'}
+            src={logEntryKind.links.iconURL}
             sx={{
               width: 70,
               height: 70,
@@ -134,7 +135,7 @@ function LogEntry({ className }) {
         <CardContent className={classes.cardContent}>
           <Box display="flex" justifyContent="center" width={1}>
             <Rating
-              defaultValue={0}
+              defaultValue={amount}
               precision={0.5}
               max={4}
               emptyIcon={<FiberManualRecordIcon />}
@@ -142,7 +143,7 @@ function LogEntry({ className }) {
             />
           </Box>
           <Typography variant="h6" align="center">
-            {date}
+            {logEntryKind.attributes.time}
           </Typography>
           <Box textAlign="center">
             <IconButton
