@@ -5,10 +5,10 @@ import { PATH_APP } from '~/routes/paths';
 import { makeStyles } from '@material-ui/core/styles';
 import { useDispatch, useSelector } from 'react-redux';
 import Page from '~/components/Page';
-import { Container, Avatar, Box } from '@material-ui/core';
+import { Container, Avatar, Box, Typography } from '@material-ui/core';
 import HeaderDashboard from '~/components/HeaderDashboard';
 import DateDisplay from '~/components/Date/date';
-
+import checkIfParamsMatches from '~/utils/checkIfParamsMatches';
 // ----------------------------------------------------------------------
 
 const useStyles = makeStyles(theme => ({
@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
 
 // ----------------------------------------------------------------------
 
-function LogEntryCardsView() {
+function LogEntryCardsView({ match }) {
   const classes = useStyles();
   const dispatch = useDispatch();
   const logEntry = useSelector(state => state.logEntry);
@@ -42,9 +42,15 @@ function LogEntryCardsView() {
           <Avatar sx={{ marginRight: 2 }}>R</Avatar>
           <DateDisplay />
         </Box>
-        <LogEntryList
-          logEntry={logEntry.logEntry !== null ? logEntry.logEntry.data : []}
-        />
+        {checkIfParamsMatches(logEntry.logEntry, match) ? (
+          <LogEntryList
+            logEntry={logEntry.logEntry !== null ? logEntry.logEntry.data : []}
+          />
+        ) : (
+          <Typography variant={'h5'} color={'textSecondary'} align={'center'}>
+            No logs to display.
+          </Typography>
+        )}
       </Container>
     </Page>
   );

@@ -102,7 +102,6 @@ function LogEntry({ className, logEntryKind }) {
     ? convertAmount(logEntryKind.attributes.amount)
     : convertAmount(logEntryKind.attributes.duration);
 
-  console.log(amount);
   return (
     <CardActionArea>
       <Card

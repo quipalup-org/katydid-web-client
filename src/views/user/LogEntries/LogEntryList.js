@@ -28,12 +28,13 @@ const SkeletonLoad = (
 );
 
 LogEntryList.propTypes = {
-  logEntries: PropTypes.array.isRequired,
+  logEntry: PropTypes.array.isRequired,
   className: PropTypes.string
 };
 
 function LogEntryList({ logEntry, className }) {
   const classes = useStyles();
+
   return (
     <Grid container spacing={3} className={clsx(classes.root, className)}>
       {logEntry.map(log => (
@@ -41,7 +42,6 @@ function LogEntryList({ logEntry, className }) {
           <LogEntry logEntryKind={log} />
         </Grid>
       ))}
-
       {!logEntry.length && SkeletonLoad}
     </Grid>
   );
