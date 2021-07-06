@@ -78,7 +78,7 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function UserItem({ user, className }) {
+function UserItem({ user, className, childId }) {
   const classes = useStyles();
   const { name, portraitURL } = user;
 
@@ -91,37 +91,39 @@ function UserItem({ user, className }) {
   };
 
   let index = getRandomInt(1, 24);
-
+  const path = `/app/children/${childId}/log-entries`;
   return (
     <CardActionArea>
-      <Card className={clsx(classes.root, className)}>
-        <div className={classes.cardMediaWrap}>
-          <Avatar
-            alt={name}
-            src={getImgAvatar(index)}
-            sx={{
-              width: 88,
-              height: 88,
-              zIndex: 11,
-              position: 'absolute',
-              transform: 'translateY(-50%)'
-            }}
-          />
-        </div>
+      <Link to={path}>
+        <Card className={clsx(classes.root, className)}>
+          <div className={classes.cardMediaWrap}>
+            <Avatar
+              alt={name}
+              src={getImgAvatar(index)}
+              sx={{
+                width: 88,
+                height: 88,
+                zIndex: 11,
+                position: 'absolute',
+                transform: 'translateY(-50%)'
+              }}
+            />
+          </div>
 
-        <CardContent className={classes.cardContent}>
-          <Typography variant="subtitle1" align="center">
-            {name}
-          </Typography>
-        </CardContent>
-        <Box display="flex" justifyContent="flex-end" width={1} padding={2}>
-          <Switch
-            checked={state.checkedA}
-            onChange={handleChange}
-            name="checkedA"
-          />
-        </Box>
-      </Card>
+          <CardContent className={classes.cardContent}>
+            <Typography variant="subtitle1" align="center">
+              {name}
+            </Typography>
+          </CardContent>
+          <Box display="flex" justifyContent="flex-end" width={1} padding={2}>
+            <Switch
+              checked={state.checkedA}
+              onChange={handleChange}
+              name="checkedA"
+            />
+          </Box>
+        </Card>
+      </Link>
     </CardActionArea>
   );
 }
