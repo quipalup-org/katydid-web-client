@@ -21,13 +21,15 @@ function LogEntryCardsView({ match }) {
   const classes = useStyles();
   const dispatch = useDispatch();
   const logEntry = useSelector(state => state.logEntry);
+  const children = useSelector(state => state.children);
 
   useEffect(() => {
     dispatch(getlogEntry());
   }, [dispatch]);
 
+  console.log(children);
   return (
-    <Page title="Management | User Cards" className={classes.root}>
+    <Page title="Management | Children" className={classes.root}>
       <Container>
         <HeaderDashboard
           heading="Log Entries"
@@ -39,12 +41,22 @@ function LogEntryCardsView({ match }) {
           ]}
         />
         <Box display="flex">
-          <Avatar sx={{ marginRight: 2 }}>R</Avatar>
+          {children.children.data.map(child =>
+            match.params.childID === child.id ? (
+              <Avatar
+                sx={{ marginRight: 2 }}
+                src={child.attributes.portraitURL}
+              />
+            ) : (
+              <></>
+            )
+          )}
           <DateDisplay />
         </Box>
         {checkIfParamsMatches(logEntry.logEntry, match) ? (
           <LogEntryList
             logEntry={logEntry.logEntry !== null ? logEntry.logEntry.data : []}
+            child={children}
           />
         ) : (
           <Typography variant={'h5'} color={'textSecondary'} align={'center'}>
