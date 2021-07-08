@@ -37,7 +37,6 @@ export function getlogEntry() {
     dispatch(logEntrySlice.actions.startLoading());
     try {
       const response = exampleResponse();
-      console.log(response);
       dispatch(logEntrySlice.actions.getLogEntrySuccess(response));
     } catch (error) {
       dispatch(logEntrySlice.actions.hasError(error));

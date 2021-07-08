@@ -26,15 +26,13 @@ function ChildrenCardsView() {
   }, [dispatch]);
 
   return (
-    <Page title="Management | User Cards" className={classes.root}>
+    <Page title="Management | Children" className={classes.root}>
       <Container>
         <HeaderDashboard
-          heading="User Cards"
+          heading="Children"
           links={[
             { name: 'Dashboard', href: PATH_APP.root },
-            { name: 'Management', href: PATH_APP.management.root },
-            { name: 'User', href: PATH_APP.management.user.root },
-            { name: 'Cards' }
+            { name: 'Children' }
           ]}
         />
         <UserList
