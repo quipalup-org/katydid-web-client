@@ -51,14 +51,6 @@ function UserItem({ user, className, childId }) {
   const classes = useStyles();
   const { name, portraitURL } = user;
 
-  const [state, setState] = useState({
-    checkedA: true
-  });
-
-  const handleChange = event => {
-    setState({ ...state, [event.target.name]: event.target.checked });
-  };
-
   const path = `/app/children/${childId}/log-entries`;
   return (
     <CardActionArea>
@@ -84,11 +76,7 @@ function UserItem({ user, className, childId }) {
             </Typography>
           </CardContent>
           <Box display="flex" justifyContent="flex-end" width={1} padding={2}>
-            <Switch
-              checked={state.checkedA}
-              onChange={handleChange}
-              name="checkedA"
-            />
+            <Switch checked={user.isPresent} name="isPresent" />
           </Box>
         </Card>
       </Link>
