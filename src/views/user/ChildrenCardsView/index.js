@@ -32,9 +32,7 @@ function ChildrenCardsView() {
           heading="Children"
           links={[
             { name: 'Dashboard', href: PATH_APP.root },
-            { name: 'Management', href: PATH_APP.management.root },
-            { name: 'User', href: PATH_APP.management.user.root },
-            { name: 'Cards' }
+            { name: 'Children' }
           ]}
         />
         <UserList
