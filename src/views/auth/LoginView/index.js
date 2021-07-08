@@ -60,6 +60,10 @@ const useStyles = makeStyles(theme => ({
   },
   divider: {
     margin: theme.spacing(3, 0)
+  },
+  imageSmallSize: {
+    height: '40%',
+    width: '40%'
   }
 }));
 
@@ -136,11 +140,9 @@ function LoginView() {
           </Box>
         </Hidden>
       </header>
-
       <Hidden mdDown>
         <Section />
       </Hidden>
-
       <Container>
         <div className={classes.content}>
           <Box sx={{ mb: 5 }}>
@@ -151,7 +153,15 @@ function LoginView() {
               Use your favourite social account to log in.
             </Typography>
           </Box>
-
+          <Hidden smUp>
+            <Box display="flex" justifyContent="center" mb={3}>
+              <img
+                className={classes.imageSmallSize}
+                src="/static/illustrations/illustration_login.svg"
+                alt="login"
+              />
+            </Box>
+          </Hidden>
           <SocialLogin firebase={firebase} />
 
           <Hidden smUp>

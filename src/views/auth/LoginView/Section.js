@@ -14,6 +14,9 @@ const useStyles = makeStyles(theme => ({
     flexDirection: 'column',
     justifyContent: 'center',
     margin: theme.spacing(2, 0, 2, 2)
+  },
+  imageSize: {
+    width: '80%'
   }
 }));
 
@@ -31,7 +34,13 @@ function Section({ className }) {
       <Box component="h3" sx={{ typography: 'h3', px: 5, mt: 5, mb: 15 }}>
         Hi, Welcome Back
       </Box>
-      <img src="/static/illustrations/illustration_login.svg" alt="login" />
+      <Box display="flex" justifyContent="center">
+        <img
+          className={classes.imageSize}
+          src="/static/illustrations/illustration_login.svg"
+          alt="login"
+        />
+      </Box>
     </Card>
   );
 }
