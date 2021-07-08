@@ -19,7 +19,10 @@ const useStyles = makeStyles(theme => ({
       justifyContent: 'space-between'
     },
     [theme.breakpoints.up('xl')]: {
-      height: 320
+      height: 500
+    },
+    [theme.breakpoints.down('xl')]: {
+      height: 500
     }
   },
   content: {
@@ -58,7 +61,7 @@ function Welcome({ displayName, className, ...other }) {
         </Box>
 
         <Button variant="contained" to="#" component={RouterLink}>
-          Go Now
+          See children today
         </Button>
       </CardContent>
 
