@@ -27,7 +27,6 @@ function LogEntryCardsView({ match }) {
     dispatch(getlogEntry());
   }, [dispatch]);
 
-  console.log(children);
   return (
     <Page title="Management | Children" className={classes.root}>
       <Container>
