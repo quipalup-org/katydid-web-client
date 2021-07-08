@@ -1,4 +1,4 @@
-const checkIfParamsMatches = (logEntry, match) => {
+const checkIfDataBelongsToChild = (logEntry, match) => {
   if (logEntry) {
     if (logEntry.data[0].attributes.childId === match.params.childId) {
       return true;
@@ -8,4 +8,4 @@ const checkIfParamsMatches = (logEntry, match) => {
   }
 };
 
-export default checkIfParamsMatches;
+export default checkIfDataBelongsToChild;

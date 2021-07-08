@@ -8,7 +8,7 @@ import Page from '~/components/Page';
 import { Container, Avatar, Box, Typography } from '@material-ui/core';
 import HeaderDashboard from '~/components/HeaderDashboard';
 import DateDisplay from '~/components/Date/date';
-import checkIfParamsMatches from '~/utils/checkIfParamsMatches';
+import checkIfDataBelongsToChild from '~/utils/checkIfDataBelongsToChild';
 // ----------------------------------------------------------------------
 
 const useStyles = makeStyles(theme => ({
@@ -52,7 +52,7 @@ function LogEntryCardsView({ match }) {
           )}
           <DateDisplay />
         </Box>
-        {checkIfParamsMatches(logEntry.logEntry, match) ? (
+        {checkIfDataBelongsToChild(logEntry.logEntry, match) ? (
           <LogEntryList
             logEntry={logEntry.logEntry !== null ? logEntry.logEntry.data : []}
             child={children}
