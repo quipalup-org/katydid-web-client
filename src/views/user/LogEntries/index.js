@@ -41,7 +41,7 @@ function LogEntryCardsView({ match }) {
         />
         <Box display="flex">
           {children.children.data.map(child =>
-            match.params.childID === child.id ? (
+            match.params.childId === child.id ? (
               <Avatar
                 sx={{ marginRight: 2 }}
                 src={child.attributes.portraitURL}

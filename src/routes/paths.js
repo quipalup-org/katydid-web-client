@@ -64,7 +64,7 @@ export const PATH_APP = {
     root: path(ROOTS.app, '/management'),
     user: {
       root: path(ROOTS.app, '/management/user'),
-      logEntries: path(ROOTS.app, '/children/:childID/log-entries'),
+      logEntries: path(ROOTS.app, '/children/:childId/log-entries'),
       children: path(ROOTS.app, '/children'),
       profile: path(ROOTS.app, '/management/user/profile'),
       cards: path(ROOTS.app, '/management/user/card'),

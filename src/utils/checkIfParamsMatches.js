@@ -1,6 +1,6 @@
 const checkIfParamsMatches = (logEntry, match) => {
   if (logEntry) {
-    if (logEntry.data[0].attributes.childId === match.params.childID) {
+    if (logEntry.data[0].attributes.childId === match.params.childId) {
       return true;
     } else {
       return false;
