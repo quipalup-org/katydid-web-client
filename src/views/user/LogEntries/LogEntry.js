@@ -23,7 +23,8 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 import SendIcon from '@material-ui/icons/Send';
 import Editable from '~/components/Editable/editable';
 import checkIfEmpty from '~/utils/validation';
-import convertAmount from '~/utils/convertAmount';
+import convertAmountToIndicator from '~/utils/convertAmountToIndicator';
+import convertTimeStampToHrMin from '~/utils/convertTimeStampToHrMin';
 // ----------------------------------------------------------------------
 
 const useStyles = makeStyles(theme => ({
@@ -99,9 +100,11 @@ function LogEntry({ className, logEntryKind }) {
   };
 
   const amount = logEntryKind.attributes.amount
-    ? convertAmount(logEntryKind.attributes.amount)
-    : convertAmount(logEntryKind.attributes.duration);
-
+    ? convertAmountToIndicator(logEntryKind.attributes.amount)
+    : convertAmountToIndicator(logEntryKind.attributes.duration);
+  const time = logEntryKind.attributes.time
+    ? convertTimeStampToHrMin(logEntryKind.attributes.time)
+    : '';
   return (
     <CardActionArea>
       <Card
@@ -142,7 +145,7 @@ function LogEntry({ className, logEntryKind }) {
             />
           </Box>
           <Typography variant="h6" align="center">
-            {logEntryKind.attributes.time}
+            {time}
           </Typography>
           <Box textAlign="center">
             <IconButton

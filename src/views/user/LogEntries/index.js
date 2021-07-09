@@ -8,7 +8,7 @@ import Page from '~/components/Page';
 import { Container, Avatar, Box, Typography } from '@material-ui/core';
 import HeaderDashboard from '~/components/HeaderDashboard';
 import DateDisplay from '~/components/Date/date';
-import checkIfDataBelongsToChild from '~/utils/checkIfDataBelongsToChild';
+import { getChildLogEntries } from '~/api/requests';
 // ----------------------------------------------------------------------
 
 const useStyles = makeStyles(theme => ({
@@ -19,13 +19,14 @@ const useStyles = makeStyles(theme => ({
 
 function LogEntryCardsView({ match }) {
   const classes = useStyles();
-  const dispatch = useDispatch();
-  const logEntry = useSelector(state => state.logEntry);
   const children = useSelector(state => state.children);
+  const [logEntry, setLogEntry] = React.useState();
 
   useEffect(() => {
-    dispatch(getlogEntry());
-  }, [dispatch]);
+    getChildLogEntries(match.params.childId).then(data => {
+      setLogEntry(data);
+    });
+  }, []);
 
   return (
     <Page title="Management | Children" className={classes.root}>
@@ -52,9 +53,9 @@ function LogEntryCardsView({ match }) {
           )}
           <DateDisplay />
         </Box>
-        {checkIfDataBelongsToChild(logEntry.logEntry, match) ? (
+        {logEntry ? (
           <LogEntryList
-            logEntry={logEntry.logEntry !== null ? logEntry.logEntry.data : []}
+            logEntry={logEntry !== null ? logEntry.data : []}
             child={children}
           />
         ) : (
