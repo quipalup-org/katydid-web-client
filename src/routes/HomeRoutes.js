@@ -14,7 +14,7 @@ const HomeRoutes = {
     {
       exact: true,
       path: '/',
-      component: lazy(() => import('src/views/auth/LoginView'))
+      component: lazy(() => import('src/views/user/ChildrenCardsView'))
     },
     {
       exact: true,
