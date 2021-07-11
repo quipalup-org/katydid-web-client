@@ -6,7 +6,7 @@ export default function exampleResponse() {
         type: 'meal',
         attributes: {
           childId: '5ee62461-adb8-4618-a110-06290a787223',
-          time: '12:54',
+          time: 1625997840,
           description: 'Yogurt with strawberries',
           amount: 100,
           unit: 'percentage'
@@ -21,7 +21,7 @@ export default function exampleResponse() {
         type: 'nap',
         attributes: {
           childId: '5ee62461-adb8-4618-a110-06290a787223',
-          time: '18:39',
+          time: 1625997840,
           duration: 59
         },
         links: {
