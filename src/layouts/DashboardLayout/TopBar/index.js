@@ -1,12 +1,8 @@
 import clsx from 'clsx';
 import React from 'react';
-import Search from './Search';
 import Account from './Account';
-import DarkMode from './DarkMode';
 import PropTypes from 'prop-types';
-import Languages from './Languages';
 import { Icon } from '@iconify/react';
-import Notifications from './Notifications';
 import menu2Fill from '@iconify-icons/eva/menu-2-fill';
 import { alpha, makeStyles } from '@material-ui/core/styles';
 import { Box, AppBar, Hidden, Toolbar, IconButton } from '@material-ui/core';
@@ -59,10 +55,7 @@ function TopBar({ onOpenNav, className }) {
             <Icon icon={menu2Fill} />
           </IconButton>
         </Hidden>
-
-        <Search />
         <Box sx={{ flexGrow: 1 }} />
-
         <Box
           sx={{
             display: 'flex',
@@ -76,9 +69,6 @@ function TopBar({ onOpenNav, className }) {
             }
           }}
         >
-          <Languages />
-          <Notifications />
-          <DarkMode />
           <Account />
         </Box>
       </Toolbar>

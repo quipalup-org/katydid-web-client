@@ -18,24 +18,6 @@ import { MIconButton } from '~/@material-extend';
 
 // ----------------------------------------------------------------------
 
-const MENU_OPTIONS = [
-  {
-    label: 'Home',
-    icon: homeFill,
-    linkTo: '/'
-  },
-  {
-    label: 'Profile',
-    icon: personFill,
-    linkTo: PATH_APP.management.user.profile
-  },
-  {
-    label: 'Settings',
-    icon: settingsFill,
-    linkTo: PATH_APP.management.user.account
-  }
-];
-
 const useStyles = makeStyles(theme => ({
   menuItem: {
     ...theme.typography.body2,
@@ -121,29 +103,6 @@ function Account() {
         </Box>
 
         <Divider className={classes.divider} />
-
-        {MENU_OPTIONS.map(option => (
-          <MenuItem
-            key={option.label}
-            to={option.linkTo}
-            component={RouterLink}
-            onClick={handleClose}
-            className={classes.menuItem}
-          >
-            <Box
-              component={Icon}
-              icon={option.icon}
-              sx={{
-                mr: 2,
-                width: 24,
-                height: 24
-              }}
-            />
-
-            {option.label}
-          </MenuItem>
-        ))}
-
         <Box sx={{ p: 2, pt: 1.5 }}>
           <Button
             fullWidth
