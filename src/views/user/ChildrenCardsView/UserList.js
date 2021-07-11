@@ -39,7 +39,7 @@ function UserList({ users, className }) {
     <Grid container spacing={3} className={clsx(classes.root, className)}>
       {users.map(user => (
         <Grid key={user.id} item xs={12} sm={6} md={4}>
-          <UserItem user={user.attributes} />
+          <UserItem user={user.attributes} childId={user.id} />
         </Grid>
       ))}
 

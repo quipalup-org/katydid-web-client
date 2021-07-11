@@ -5,10 +5,10 @@ import { PATH_APP } from '~/routes/paths';
 import { makeStyles } from '@material-ui/core/styles';
 import { useDispatch, useSelector } from 'react-redux';
 import Page from '~/components/Page';
-import { Container, Avatar, Box } from '@material-ui/core';
+import { Container, Avatar, Box, Typography } from '@material-ui/core';
 import HeaderDashboard from '~/components/HeaderDashboard';
 import DateDisplay from '~/components/Date/date';
-
+import { getChildLogEntries } from '~/api/requests';
 // ----------------------------------------------------------------------
 
 const useStyles = makeStyles(theme => ({
@@ -17,17 +17,19 @@ const useStyles = makeStyles(theme => ({
 
 // ----------------------------------------------------------------------
 
-function LogEntryCardsView() {
+function LogEntryCardsView({ match }) {
   const classes = useStyles();
-  const dispatch = useDispatch();
-  const logEntry = useSelector(state => state.logEntry);
+  const children = useSelector(state => state.children);
+  const [logEntry, setLogEntry] = React.useState();
 
   useEffect(() => {
-    dispatch(getlogEntry());
-  }, [dispatch]);
+    getChildLogEntries(match.params.childId).then(data => {
+      setLogEntry(data);
+    });
+  }, []);
 
   return (
-    <Page title="Management | User Cards" className={classes.root}>
+    <Page title="Management | Children" className={classes.root}>
       <Container>
         <HeaderDashboard
           heading="Log Entries"
@@ -39,12 +41,28 @@ function LogEntryCardsView() {
           ]}
         />
         <Box display="flex">
-          <Avatar sx={{ marginRight: 2 }}>R</Avatar>
+          {children.children.data.map(child =>
+            match.params.childId === child.id ? (
+              <Avatar
+                sx={{ marginRight: 2 }}
+                src={child.attributes.portraitURL}
+              />
+            ) : (
+              <></>
+            )
+          )}
           <DateDisplay />
         </Box>
-        <LogEntryList
-          logEntry={logEntry.logEntry !== null ? logEntry.logEntry.data : []}
-        />
+        {logEntry ? (
+          <LogEntryList
+            logEntry={logEntry !== null ? logEntry.data : []}
+            child={children}
+          />
+        ) : (
+          <Typography variant={'h5'} color={'textSecondary'} align={'center'}>
+            No logs to display.
+          </Typography>
+        )}
       </Container>
     </Page>
   );
